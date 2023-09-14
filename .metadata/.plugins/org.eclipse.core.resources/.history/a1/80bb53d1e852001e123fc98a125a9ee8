@@ -1,0 +1,5 @@
+package com.foodka.util;
+
+public class JwtUtil {
+
+}

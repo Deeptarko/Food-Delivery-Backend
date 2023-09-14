@@ -1,0 +1,9 @@
+package com.foodka.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.foodka.entity.UserCredential;
+
+public interface UserCredentialRepository extends JpaRepository<UserCredential, Integer> {
+
+}

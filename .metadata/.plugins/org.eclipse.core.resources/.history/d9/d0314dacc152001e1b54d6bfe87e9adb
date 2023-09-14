@@ -1,0 +1,5 @@
+package com.foodka.config;
+
+public class CustomUserDetails {
+
+}

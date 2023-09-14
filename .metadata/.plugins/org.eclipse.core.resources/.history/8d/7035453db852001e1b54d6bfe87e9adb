@@ -1,0 +1,5 @@
+package com.foodka.service;
+
+public class JwtService {
+
+}

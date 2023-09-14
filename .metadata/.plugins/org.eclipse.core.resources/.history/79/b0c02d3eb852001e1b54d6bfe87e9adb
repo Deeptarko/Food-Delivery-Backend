@@ -1,0 +1,5 @@
+package com.foodka.entity;
+
+public class UserCredential {
+
+}
