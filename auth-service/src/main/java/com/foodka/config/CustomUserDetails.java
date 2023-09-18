@@ -7,6 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.foodka.entity.UserCredential;
 
+import lombok.ToString;
+
+@ToString
 public class CustomUserDetails implements UserDetails {
 
 	private String username;
