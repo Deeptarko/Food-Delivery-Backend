@@ -80,5 +80,23 @@ public class InventoryServiceImpl implements InventoryService {
 				.map(inventory -> this.modelMapper.map(inventory, InventoryDto.class)).collect(Collectors.toList());
 		return inventoryDtos;
 	}
+	
+	@Override
+	public List<InventoryDto> checkQuantity(List<Long>itemIds) {
+		
+		List<Inventory>items=inventoryRepository.findAllById(itemIds);
+		
+		List<Inventory>availableItems=items.stream()
+				.filter(item->item.getQuantity()>1)
+				.collect(Collectors.toList());
+		
+	    if(availableItems.size()!=itemIds.size()) {
+	    	throw new InventoryItemNotFoundException("Some of the items are not available");
+	    }
+		
+		List<InventoryDto> inventoryDtos = availableItems.stream()
+				.map(inventory -> this.modelMapper.map(inventory, InventoryDto.class)).collect(Collectors.toList());
+		return inventoryDtos;
+	}
 
 }

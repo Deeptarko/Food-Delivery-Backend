@@ -72,5 +72,14 @@ public class InventoryController {
 		List<InventoryDto> inventoryDtos = this.inventoryService.getAllFoodDetails();
 		return ResponseEntity.ok(inventoryDtos);
 	}
+	
+	
+	//Check if all the items with the given ids are available in the inventory
+	@GetMapping("/checkQuantity/{itemIds}")
+	public ResponseEntity<List<InventoryDto>> checkInventory(@PathVariable List<Long> itemIds) {
+
+		List<InventoryDto> inventoryDtos = this.inventoryService.checkQuantity(itemIds);
+		return ResponseEntity.ok(inventoryDtos);
+	}
 
 }

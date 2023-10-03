@@ -19,5 +19,8 @@ public interface InventoryService {
 
 	// get all foods
 	List<InventoryDto> getAllFoodDetails();
+	
+	// Check if the list of the given items are available in the inventory
+	List<InventoryDto> checkQuantity(List<Long>itemIds);
 
 }

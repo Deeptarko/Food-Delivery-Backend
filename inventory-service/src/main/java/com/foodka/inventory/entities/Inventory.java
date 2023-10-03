@@ -42,4 +42,6 @@ public class Inventory {
 
 	@Column(name = "updated_at")
 	private Date updatedAt;
+	
+	private Integer quantity;
 }

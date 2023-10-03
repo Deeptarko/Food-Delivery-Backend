@@ -18,5 +18,7 @@ public class InventoryDto {
 	private Double price;
 	private Boolean vegeterian;
 	private Date createdAt;
+	private Integer quantity;
 	private Date updatedAt;
+	
 }
