@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.foodka.config.CustomUserDetails;
 import com.foodka.dto.AuthRequest;
 import com.foodka.dto.AuthResponse;
 import com.foodka.dto.UserInfo;
@@ -39,12 +40,15 @@ public class AuthController {
 				new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
 		if (authenticate.isAuthenticated()) {
 
-			UserDetails userDetails = (UserDetails) authenticate.getPrincipal();
-
+			CustomUserDetails userDetails = (CustomUserDetails) authenticate.getPrincipal();
+			
+			System.out.println(userDetails);
+			
 			String token = service.generateToken(authRequest.getUsername());
 			AuthResponse response = new AuthResponse();
 			UserInfo userInfo = new UserInfo();
 			userInfo.setUsername(userDetails.getUsername());
+			userInfo.setUserId(userDetails.getUserId());
 			response.setToken(token);
 			response.setUser(userInfo);
 			return response;

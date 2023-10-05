@@ -1,5 +1,0 @@
-package com.foodka.repository;
-
-public interface UserCredentialRepository {
-
-}

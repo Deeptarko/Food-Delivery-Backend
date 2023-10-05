@@ -1,5 +1,0 @@
-package com.foodka.dto;
-
-public class AuthRequest {
-
-}

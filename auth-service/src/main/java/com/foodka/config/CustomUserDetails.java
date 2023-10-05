@@ -14,11 +14,14 @@ public class CustomUserDetails implements UserDetails {
 
 	private String username;
 	private String password;
+	private Integer userId;
+	
 
 	public CustomUserDetails(UserCredential userCredential) {
 
 		this.username = userCredential.getName();
 		this.password = userCredential.getPassword();
+		this.userId=userCredential.getId();
 	}
 
 	@Override
@@ -37,6 +40,10 @@ public class CustomUserDetails implements UserDetails {
 	public String getUsername() {
 
 		return username;
+	}
+	
+	public Integer getUserId() {
+		return userId;
 	}
 
 	@Override
